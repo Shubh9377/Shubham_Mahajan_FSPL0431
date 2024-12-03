@@ -11,7 +11,7 @@ public class EmployeeDto {
     private String eLastName;
     private String email;
     private String address;
-    private Date date_of_joining;
+    private String date_of_joining;
     private double salary;
 
     private  boolean isActive;

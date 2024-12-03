@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class DepartmentService {
@@ -26,4 +27,10 @@ public class DepartmentService {
 
         return departmentRepository.save(department);
     }
+
+    public List<Department> getAllDepartment(){
+        List<Department> departmentList = departmentRepository.findAll();
+        return departmentList;
+    }
+
 }

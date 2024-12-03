@@ -7,6 +7,8 @@ import com.sample.example.EmployeeManagementSystem.repository.EmployeeRepository
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class EmployeeService {
@@ -31,10 +33,11 @@ public class EmployeeService {
         emp.setUpdatedBy(employeeDto.getUpdatedBy());
         emp.setUpdatedDate(employeeDto.getUpdatedDate());
         return employeeRepository.save(emp);
+    }
 
-
-
-
+    public List<Employee> getAllEmployee(){
+        List<Employee> list = employeeRepository.findAll();
+        return list;
 
     }
 

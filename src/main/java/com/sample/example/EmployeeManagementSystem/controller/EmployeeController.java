@@ -4,11 +4,12 @@ import com.sample.example.EmployeeManagementSystem.Entity.Employee;
 import com.sample.example.EmployeeManagementSystem.dto.EmployeeDto;
 import com.sample.example.EmployeeManagementSystem.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 import static org.springframework.http.HttpStatus.CREATED;
 
@@ -21,11 +22,15 @@ public class EmployeeController {
 
 
     @PostMapping("/employeeData")
-    public ResponseEntity<Employee> addData (EmployeeDto employeeDTO){
+    public ResponseEntity<Employee> addData (@RequestBody EmployeeDto employeeDTO){
         return new ResponseEntity<>(employeeService.addData(employeeDTO),CREATED);
-
-
     }
+
+    @GetMapping("/getData")
+    public ResponseEntity<List<Employee>> getAllEmployee(){
+        return new ResponseEntity<>(employeeService.getAllEmployee(), HttpStatus.FOUND);
+    }
+
 
 
 
